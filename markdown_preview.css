@@ -3,3 +3,12 @@
   width: 45%;
   border: 1px solid black;
 }
+
+.markdown {
+  float: left;
+}
+
+.preview {
+  float: right;
+  height: 100px;
+}
