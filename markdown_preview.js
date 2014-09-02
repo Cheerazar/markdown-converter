@@ -19,7 +19,16 @@ Controller.prototype = {
 
   convertMarkdown: function (event) {
     var textToConvert = $(event.target).val();
-    this.view.renderView(textToConvert);
+    var convertedMarkdown = this.convertMarkdownToHtml(textToConvert);
+    this.view.renderView(convertedMarkdown);
+  },
+
+  markdownReplacer: function (match, p1, p2, p3, offset, string) {
+    return '<em>' + p2 + '</em>';
+  },
+
+  convertMarkdownToHtml: function(textToConvert) {
+    return textToConvert.replace(/(\*)(.*)(\*)/, this.markdownReplacer);
   }
 }
 
